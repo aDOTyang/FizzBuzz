@@ -77,3 +77,18 @@ footer {
   color: var(--ay-secondary-color);
   padding-right: 0.5rem;
 }
+
+.Fizz {
+  color: tomato !important;
+  font-weight: 500 !important;
+}
+
+.Buzz {
+  color: goldenrod !important;
+  font-weight: 500 !important;
+}
+
+.FizzBuzz {
+  color: var(--ay-secondary-color) !important;
+  font-weight: bolder !important;
+}
