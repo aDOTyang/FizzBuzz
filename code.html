@@ -52,18 +52,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/index.html"
-                  >Home</a
-                >
+                <a class="nav-link" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/app.html">The App</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/code.html">The Code</a>
+                <a class="nav-link active" aria-current="page" href="/code.html"
+                  >The Code</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">The Repo</a>
@@ -89,18 +86,105 @@
         <div class="col-12 col-lg-8">
           <pre class="line-numbers">
                     <code class="language-js">
-                        function displayMessage() {
-                            let message = document.getElementById("message").value;
-                            alert(message);
+                      function getValues() {
+                        let startValue = document.getElementById("startValue").value;
+                        let endValue = document.getElementById("endValue").value;
+                        let limitValue = document.getElementById("limitValue").value;
+                      
+                        startValue = parseInt(startValue);
+                        endValue = parseInt(endValue);
+                        limitValue = parseInt(limitValue);
+                      
+                        if (
+                          Number.isInteger(startValue) &&
+                          Number.isInteger(endValue) &&
+                          Number.isInteger(limitValue)
+                        ) {
+                          let numbers = generateFizzBuzz(startValue, endValue, limitValue);
+                          displayFizzBuzz(numbers);
+                        } else if (limitValue.length > 3) {
+                          Swal.fire({
+                            icon: "error",
+                            title: "Improper Input",
+                            text: "The Limit Does Not Exist!",
+                          });
+                        } else {
+                          Swal.fire({
+                            icon: "error",
+                            title: "Integers Only",
+                            text: "Only non-zero integers are allowed for Fizzing & Buzzing!",
+                          });
+                        }
+                      }
+                      
+                      function generateFizzBuzz(startValue, endValue, limitValue) {
+                        let numbers = [];
+                        for (let i = 1; i <= limitValue; i++) {
+                          if (i % startValue == 0 && i % endValue == 0) {
+                            numbers.push("FizzBuzz");
+                          } else if (i % endValue == 0) {
+                            numbers.push("Buzz");
+                          } else if (i % startValue == 0) {
+                            numbers.push("Fizz");
+                          } else numbers.push(i);
+                        }
+                        return numbers;
+                      }
+                      
+                      function displayFizzBuzz(numbers) {
+                        let className = "";
+                        let templateRows = "";
+                        for (let i = 0; i < numbers.length; i++) {
+                          let number = numbers[i];
+                      
+                          if (number == "FizzBuzz") {
+                            className = "FizzBuzz";
+                          } else if (number == "Fizz") {
+                            className = "Fizz";
+                          } else if (number == "Buzz") {
+                            className = "Buzz";
+                          } else {
+                            className = "";
                           }
+                      
+                          if (i % 10 == 0) {
+                            templateRows += "<tr>";
+                          }
+                      
+                          templateRows += `<td class="${className}">${number}</td>`;
+                      
+                          if ((i + 1) % 10 == 0) {
+                            templateRows += "</tr>";
+                          }
+                        }
+                        document.getElementById("results").innerHTML = templateRows;
+                      }
+                      
                         </code>
                 </pre>
         </div>
         <!-- Code Docs -->
         <div class="col-12 col-lg-4">
-          <p>The code is structured in one function</p>
-          <h5>displayMessage</h5>
-          <p>Prints out the message</p>
+          <p>
+            The code for this application is split per typical MVC convention.
+          </p>
+          <h5>getValues()</h5>
+          <p class="mb-5">
+            This function acts as the controller and is the trigger to execute
+            the embedded functions generateFizzBuzz() and displayFizzBuzz(),
+            which are the Model and View, respectively.
+          </p>
+          <h5>generateFizzBuzz()</h5>
+          <p class="mb-5">
+            This function is the Model portion of the typical MVC structure and
+            dictates how the data is stored and processed for the getValues()
+            function as a whole.
+          </p>
+          <h5>displayFizzBuzz()</h5>
+          <p class="mb-5">
+            This function is the View portion of the typical MVC structure and
+            tells the HTML how the function output should be displayed.
+          </p>
         </div>
       </div>
     </main>
@@ -111,10 +195,10 @@
           <div class="col text-center text-lg-start order-last order-lg-first">
             &copy;2022 Alex Yang
           </div>
-          <div class="col text-center order-0 order-lg-1">
+          <div class="col text-center order-1 order-lg-1">
             <img src="/img/ALEXdark.png" height="50" />
           </div>
-          <div class="col text-center text-lg-end order-1 order-lg-last">
+          <div class="col text-center text-lg-end order-0 order-lg-last">
             <a href="#"><i class="bi bi-linkedin socialIcon"></i></a>
             <a href="#"><i class="bi bi-github socialIcon"></i></a>
           </div>

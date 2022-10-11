@@ -84,43 +84,51 @@
           <div class="fw-bold lh-1 mb-3">
             <p>
               Life is too short to punch numbers manually! A Javascript coding
-              exercise using loops to write a program that checks the numbers 0
-              to 100 for divisibility by the provided inputs. Fizz on!
+              exercise using loops.
             </p>
-            <h2>Instructions</h2>
             <p>
-              Enter two values that you want to check the divisibility of. Give
-              the button a Buzz and watch the values Fizz!
+              This application checks the numbers from 0 to the provided limit
+              for divisibility by the provided inputs. Fizz on!
+            </p>
+            <h2><u>Instructions</u></h2>
+            <p>
+              Enter two values that you want to check the divisibility of. The
+              numbers that are divisible by your input values will be styled &
+              replace the original number in the table. Give the button a Buzz
+              and watch the values Fizz!
             </p>
           </div>
         </div>
         <div class="col">
           <div>
-            <h5>Enter Values</h5>
+            <h3>Enter Values</h3>
             <form action="" class="row gy-2 gx-3">
               <div class="col">
+                <label>Divisor #1</label>
                 <input
                   type="number"
                   min="0"
                   max="99"
                   class="form-control"
                   id="startValue"
-                  placeholder="Start Value"
+                  placeholder="Divisor 1"
                   value="0"
-                  aria-label="Start Value" />
+                  aria-label="Divisor 1" />
               </div>
               <div class="col">
+                <label>Divisor #2</label>
                 <input
                   type="number"
                   min="1"
                   max="100"
                   class="form-control"
                   id="endValue"
-                  placeholder="End Value"
+                  placeholder="Divisor 2"
                   value="100"
-                  aria-label="End Value" />
+                  aria-label="Divisor 2" />
               </div>
               <div class="col">
+                <label>Upper Limit</label>
                 <input
                   type="number"
                   min="1"
@@ -129,8 +137,8 @@
                   class="form-control"
                   id="limitValue"
                   value="100"
-                  placeholder="Limit Value"
-                  aria-label="Limit Value" />
+                  placeholder="Upper Limit Value"
+                  aria-label="Upper Limit Value" />
               </div>
               <div
                 class="col-12 d-flex align-items-center justify-content-start justify-content-md-end">
@@ -159,13 +167,15 @@
     <footer class="footer container-fluid py-3">
       <div class="container">
         <div class="row row-cols-1 row-cols-lg-3 align-items-center">
-          <div class="col text-center text-lg-start order-last order-lg-first">
+          <div
+            class="col text-center text-lg-start order-last order-lg-first mt-2 mt-md-0">
             &copy;2022 Alex Yang
           </div>
-          <div class="col text-center order-0 order-lg-1">
+          <div class="col text-center order-1 order-lg-1">
             <img src="/img/ALEXdark.png" height="50" />
           </div>
-          <div class="col text-center text-lg-end order-1 order-lg-last">
+          <div
+            class="col text-center text-lg-end order-0 order-lg-last mb-2 mb-md-0">
             <a href="#"><i class="bi bi-linkedin socialIcon"></i></a>
             <a href="#"><i class="bi bi-github socialIcon"></i></a>
           </div>

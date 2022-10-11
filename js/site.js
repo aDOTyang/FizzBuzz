@@ -3,8 +3,6 @@ function getValues() {
   let endValue = document.getElementById("endValue").value;
   let limitValue = document.getElementById("limitValue").value;
 
-  // values from HTML are treated as strings & needs to be parsed into a number
-  // ok to drop in front of the pull command i.e. let startValue = parseInt(document...);
   startValue = parseInt(startValue);
   endValue = parseInt(endValue);
   limitValue = parseInt(limitValue);
@@ -65,7 +63,6 @@ function displayFizzBuzz(numbers) {
       templateRows += "<tr>";
     }
 
-    // use tic marks, not single quotes for string interpolation and template literal
     templateRows += `<td class="${className}">${number}</td>`;
 
     if ((i + 1) % 10 == 0) {
