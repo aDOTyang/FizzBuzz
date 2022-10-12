@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>App Name:A Coding Challenge</title>
+    <title>Fizz Buzz:A Coding Challenge</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -35,7 +35,7 @@
       <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
         <div class="container">
           <a class="navbar-brand" href="/index.html"
-            ><img src="/img/ALEXdark.png" height="50" class="p-1" /> App Name</a
+            ><img src="/img/ALEXdark.png" height="50" class="p-1" />Fizz Buzz</a
           >
           <button
             class="navbar-toggler"
@@ -55,7 +55,7 @@
                 <a class="nav-link" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/app.html">The App</a>
+                <a class="nav-link" href="/app.html">Fizz Buzz</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/code.html"
@@ -66,12 +66,12 @@
                 <a class="nav-link" href="#">The Repo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://alexyang.netlify.app/"
-                  >About</a
-                >
+                <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="https://alexyang.netlify.app/"
+                  >Blog</a
+                >
               </li>
             </ul>
           </div>
@@ -87,27 +87,21 @@
           <pre class="line-numbers">
                     <code class="language-js">
                       function getValues() {
-                        let startValue = document.getElementById("startValue").value;
-                        let endValue = document.getElementById("endValue").value;
+                        let fizzValue = document.getElementById("fizzValue").value;
+                        let buzzValue = document.getElementById("buzzValue").value;
                         let limitValue = document.getElementById("limitValue").value;
                       
-                        startValue = parseInt(startValue);
-                        endValue = parseInt(endValue);
+                        fizzValue = parseInt(fizzValue);
+                        buzzValue = parseInt(buzzValue);
                         limitValue = parseInt(limitValue);
                       
                         if (
-                          Number.isInteger(startValue) &&
-                          Number.isInteger(endValue) &&
+                          Number.isInteger(fizzValue) &&
+                          Number.isInteger(buzzValue) &&
                           Number.isInteger(limitValue)
                         ) {
-                          let numbers = generateFizzBuzz(startValue, endValue, limitValue);
+                          let numbers = generateFizzBuzz(fizzValue, buzzValue, limitValue);
                           displayFizzBuzz(numbers);
-                        } else if (limitValue.length > 3) {
-                          Swal.fire({
-                            icon: "error",
-                            title: "Improper Input",
-                            text: "The Limit Does Not Exist!",
-                          });
                         } else {
                           Swal.fire({
                             icon: "error",
@@ -117,14 +111,14 @@
                         }
                       }
                       
-                      function generateFizzBuzz(startValue, endValue, limitValue) {
+                      function generateFizzBuzz(fizzValue, buzzValue, limitValue) {
                         let numbers = [];
                         for (let i = 1; i <= limitValue; i++) {
-                          if (i % startValue == 0 && i % endValue == 0) {
+                          if (i % fizzValue == 0 && i % buzzValue == 0) {
                             numbers.push("FizzBuzz");
-                          } else if (i % endValue == 0) {
+                          } else if (i % buzzValue == 0) {
                             numbers.push("Buzz");
-                          } else if (i % startValue == 0) {
+                          } else if (i % fizzValue == 0) {
                             numbers.push("Fizz");
                           } else numbers.push(i);
                         }
@@ -133,33 +127,32 @@
                       
                       function displayFizzBuzz(numbers) {
                         let className = "";
-                        let templateRows = "";
+                        let tableRows = "";
                         for (let i = 0; i < numbers.length; i++) {
-                          let number = numbers[i];
+                          let checkedValue = numbers[i];
                       
-                          if (number == "FizzBuzz") {
+                          if (checkedValue == "FizzBuzz") {
                             className = "FizzBuzz";
-                          } else if (number == "Fizz") {
+                          } else if (checkedValue == "Fizz") {
                             className = "Fizz";
-                          } else if (number == "Buzz") {
+                          } else if (checkedValue == "Buzz") {
                             className = "Buzz";
                           } else {
                             className = "";
                           }
                       
                           if (i % 10 == 0) {
-                            templateRows += "<tr>";
+                            tableRows += "<tr>";
                           }
                       
-                          templateRows += `<td class="${className}">${number}</td>`;
+                          tableRows += `<td class="${className}">${checkedValue}</td>`;
                       
                           if ((i + 1) % 10 == 0) {
-                            templateRows += "</tr>";
+                            tableRows += "</tr>";
                           }
                         }
-                        document.getElementById("results").innerHTML = templateRows;
+                        document.getElementById("results").innerHTML = tableRows;
                       }
-                      
                         </code>
                 </pre>
         </div>
@@ -196,7 +189,7 @@
             &copy;2022 Alex Yang
           </div>
           <div class="col text-center order-1 order-lg-1">
-            <img src="/img/ALEXdark.png" height="50" />
+            <img src="/img/AYdark_250x100.png" height="50" />
           </div>
           <div class="col text-center text-lg-end order-0 order-lg-last">
             <a href="#"><i class="bi bi-linkedin socialIcon"></i></a>

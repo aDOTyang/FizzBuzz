@@ -1,25 +1,25 @@
 function getValues() {
-  let startValue = document.getElementById("startValue").value;
-  let endValue = document.getElementById("endValue").value;
+  let fizzValue = document.getElementById("fizzValue").value;
+  let buzzValue = document.getElementById("buzzValue").value;
   let limitValue = document.getElementById("limitValue").value;
 
-  startValue = parseInt(startValue);
-  endValue = parseInt(endValue);
+  fizzValue = parseInt(fizzValue);
+  buzzValue = parseInt(buzzValue);
   limitValue = parseInt(limitValue);
 
   if (
-    Number.isInteger(startValue) &&
-    Number.isInteger(endValue) &&
+    Number.isInteger(fizzValue) &&
+    Number.isInteger(buzzValue) &&
     Number.isInteger(limitValue)
   ) {
-    let numbers = generateFizzBuzz(startValue, endValue, limitValue);
+    let numbers = generateFizzBuzz(fizzValue, buzzValue, limitValue);
     displayFizzBuzz(numbers);
-  } else if (limitValue.length > 3) {
-    Swal.fire({
-      icon: "error",
-      title: "Improper Input",
-      text: "The Limit Does Not Exist!",
-    });
+    // } else if (limitValue.length > 3) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Improper Input",
+    //     text: "The Limit Does Not Exist!",
+    //   });
   } else {
     Swal.fire({
       icon: "error",
@@ -29,14 +29,14 @@ function getValues() {
   }
 }
 
-function generateFizzBuzz(startValue, endValue, limitValue) {
+function generateFizzBuzz(fizzValue, buzzValue, limitValue) {
   let numbers = [];
   for (let i = 1; i <= limitValue; i++) {
-    if (i % startValue == 0 && i % endValue == 0) {
+    if (i % fizzValue == 0 && i % buzzValue == 0) {
       numbers.push("FizzBuzz");
-    } else if (i % endValue == 0) {
+    } else if (i % buzzValue == 0) {
       numbers.push("Buzz");
-    } else if (i % startValue == 0) {
+    } else if (i % fizzValue == 0) {
       numbers.push("Fizz");
     } else numbers.push(i);
   }
@@ -45,29 +45,29 @@ function generateFizzBuzz(startValue, endValue, limitValue) {
 
 function displayFizzBuzz(numbers) {
   let className = "";
-  let templateRows = "";
+  let tableRows = "";
   for (let i = 0; i < numbers.length; i++) {
-    let number = numbers[i];
+    let checkedValue = numbers[i];
 
-    if (number == "FizzBuzz") {
+    if (checkedValue == "FizzBuzz") {
       className = "FizzBuzz";
-    } else if (number == "Fizz") {
+    } else if (checkedValue == "Fizz") {
       className = "Fizz";
-    } else if (number == "Buzz") {
+    } else if (checkedValue == "Buzz") {
       className = "Buzz";
     } else {
       className = "";
     }
 
     if (i % 10 == 0) {
-      templateRows += "<tr>";
+      tableRows += "<tr>";
     }
 
-    templateRows += `<td class="${className}">${number}</td>`;
+    tableRows += `<td class="${className}">${checkedValue}</td>`;
 
     if ((i + 1) % 10 == 0) {
-      templateRows += "</tr>";
+      tableRows += "</tr>";
     }
   }
-  document.getElementById("results").innerHTML = templateRows;
+  document.getElementById("results").innerHTML = tableRows;
 }
