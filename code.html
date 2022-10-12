@@ -120,10 +120,8 @@
                             numbers.push("Buzz");
                           } else if (i % fizzValue == 0) {
                             numbers.push("Fizz");
-                          } else numbers.push(i);
-                        }
-                        return numbers;
-                      }
+                          } else numbers.push(i); }
+                        return numbers; }
                       
                       function displayFizzBuzz(numbers) {
                         let className = "";
@@ -138,18 +136,15 @@
                           } else if (checkedValue == "Buzz") {
                             className = "Buzz";
                           } else {
-                            className = "";
-                          }
+                            className = ""; }
                       
                           if (i % 10 == 0) {
-                            tableRows += "<tr>";
-                          }
+                            tableRows += "<tr>"; }
                       
                           tableRows += `<td class="${className}">${checkedValue}</td>`;
                       
                           if ((i + 1) % 10 == 0) {
-                            tableRows += "</tr>";
-                          }
+                            tableRows += "</tr>"; }
                         }
                         document.getElementById("results").innerHTML = tableRows;
                       }
@@ -162,21 +157,44 @@
             The code for this application is split per typical MVC convention.
           </p>
           <h5>getValues()</h5>
-          <p class="mb-5">
+          <p>
             This function acts as the controller and is the trigger to execute
             the embedded functions generateFizzBuzz() and displayFizzBuzz(),
             which are the Model and View, respectively.
           </p>
+          <p class="mb-3">
+            The getValues() function pulls in the inputs <b>startValue</b>,
+            <b>endValue</b>, and <b>limitValue</b> from the HTML form fields and
+            parses them into usable integers. Once the conditions have been
+            verified, the getValues() function then calls the generateFizzBuzz()
+            and displayFizzBuzz() functions which will calculate the intended
+            result and format the table, respectively.
+          </p>
           <h5>generateFizzBuzz()</h5>
-          <p class="mb-5">
+          <p>
             This function is the Model portion of the typical MVC structure and
             dictates how the data is stored and processed for the getValues()
             function as a whole.
           </p>
+          <p class="mb-3">
+            The generateFizzBuzz() function checks the values between 0 and the
+            limitValue input for divisibility for the two divisor inputs, Fizz
+            and Buzz. If divisible by either or both, the input changes from the
+            original number to the appropriate designation. The function then
+            pushes the result into the 'numbers' array.
+          </p>
           <h5>displayFizzBuzz()</h5>
-          <p class="mb-5">
+          <p>
             This function is the View portion of the typical MVC structure and
             tells the HTML how the function output should be displayed.
+          </p>
+          <p class="mb-3">
+            Finally, displayFizzBuzz() will assign a class designator className
+            based on the same criteria as generateFizzBuzz(). It then styles the
+            table with new table row breaks at values divisible by 10 for a
+            cleaner table. The generateFizzBuzz() and displayFizzBuzz()
+            functions were purposely kept separate to show clear distinction
+            between the roles of the Model and View portions of the code.
           </p>
         </div>
       </div>
