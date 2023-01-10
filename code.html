@@ -161,7 +161,7 @@
           </p>
           <h5>getValues()</h5>
           <p>
-            This function is the entry point to the application. It begins by
+            This function acts as the controller for the application. It begins by
             pulling the three user input values from the HTML form and parses
             them into usable integers. Once the conditions have been verified,
             it then calls the <b>generateFizzBuzz()</b> and
@@ -171,22 +171,25 @@
           <h5>generateFizzBuzz()</h5>
           <p>
             This function dictates how the data is stored and processed for the
-            application as a whole. It first checks the values between 0 and the
-            limitValue input for divisibility for the two divisor inputs, Fizz
+            application as a whole. It first checks all values between 0 and the
+            limitValue input for divisibility by the two divisor inputs, Fizz
             (Divisor #1) and Buzz (Divisor #2). If divisible by either or both,
-            the input changes from the original number to the appropriate
-            designation. The function then pushes the result into the 'numbers'
-            array.
+            the output number is replaced by the appropriate designation to indicate 
+            its divisibility. The function then pushes the result into the 'numbers' array.
           </p>
           <h5>displayFizzBuzz()</h5>
           <p>
-            Finally, this function will assign a class designator className
+            Finally, this function will initialize a class designator className
             based on the same criteria as generateFizzBuzz(). It then styles the
             table with new table row breaks at values divisible by 10 for a
             cleaner table. While this code could easily be condensed, the
             generateFizzBuzz() and displayFizzBuzz() functions were purposely
             kept separate to show clear distinction between concerns as a best
             management practice.
+          </p>
+          <p>
+            And that's FizzBuzz! This app makes it super easy to view divisibility within 
+            a specified number range in a fun and visually distinctive format!
           </p>
         </div>
       </div>
